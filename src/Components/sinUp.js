@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 
+import "./SignUp.css";
+
 export default function SinUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -27,8 +29,15 @@ export default function SinUp() {
     }
   };
   return (
-    <div>
+  
+   
+
+    <div className="loginbox">
+ 
      <h1>SignUp</h1>
+     <label>Name:</label>
+
+     <br/>
       <input
         onChange={(e) => {
           changeName(e);
@@ -38,7 +47,9 @@ export default function SinUp() {
       /> 
       <br/>
       <br/>
+      <label>email:</label>
 
+      <br/>
       <input
         onChange={(e) => {
           changeEmail(e);
@@ -48,8 +59,9 @@ export default function SinUp() {
       />
             <br/>
             <br/>
-
-
+          
+            <label>password:</label>
+        <br/>
       <input
         onChange={(e) => {
           changePass(e);
@@ -69,5 +81,6 @@ export default function SinUp() {
         sinUp
       </button>
     </div>
+    
   );
 }

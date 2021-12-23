@@ -1,0 +1,35 @@
+.loginbox{
+text-align: center;
+}
+
+
+.loginbox-logo{
+    animation: App-logo-spin;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.loginbox{
+ margin: auto;
+    box-shadow: burlywood;
+    background-color: rgba(235, 163, 28, 0.452);
+    min-height: 65vh;
+    min-width: 0%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(4px + 2vmin);
+    color: black;
+  border-block-end: rgb(179, 185, 185);
+  border-radius: 30%;
+ margin-top: 55px;
+ 
+}
+
+button{
+    border-color: rgb(12, 11, 12);
+    box-shadow: beige;
+}
+

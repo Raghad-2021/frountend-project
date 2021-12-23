@@ -1,25 +1,17 @@
 body {
-    font-family: sans-serif;
+  background-image: url("");
+  background-color: linen;
+  box-shadow: steelblue;
 }
 
 .loginbox{
-  width: 250px;
-  position: absolute;
-  top: 30%;
-  right: 35%;
-  padding: 30px;
-  border: black;
+  padding: 14px 16px;
+  margin-left: 40%;
+  width: 50%;
 }
 
-.loginbox h1 {
-border-bottom: brown;
-}
 
-input , button{
-    width: 50%;
-    font-size: 20%;
-    right: 35%;
-    padding: 8px 0;
-    border-bottom: 1px solid brown;
-}
+
+
+
 

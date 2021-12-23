@@ -1,0 +1,11 @@
+body {
+    background-image: url("");
+    background-color: linen;
+    box-shadow: steelblue;
+  }
+  
+  .loginbox{
+    padding: 14px 16px;
+    margin-left: 40%;
+    width: 50%;
+  }

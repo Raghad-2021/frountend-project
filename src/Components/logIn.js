@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router";
- 
-import "./login.css"
+
+import "./login.css";
 
 export default function LogIn({ setToken }) {
   const [email, setEmail] = useState("");
@@ -22,13 +22,23 @@ export default function LogIn({ setToken }) {
         pass,
       });
       console.log(res.data);
+      localStorage.setItem("token", res.data.token);
+      // حفظ التوكن والرول في لوكل ستوريج
+      localStorage.setItem("role", res.data.user.role);
       setToken(res.data.token);
-    } catch (err) {
-    }
+      // فتح الراوت حسب الرول 
+      res.data.user.role == "admin"
+      
+        ? history.push("/admin-home")
+        : history.push("/Movies");
+    } catch (err) {}
   };
   return (
     <div className="loginbox">
       <h1> LOGIN </h1>
+
+      <label>Email:</label>
+      <br />
       <input
         onChange={(e) => {
           changeEmail(e);
@@ -38,7 +48,9 @@ export default function LogIn({ setToken }) {
       />
       <br />
       <br />
-      
+
+      <label>password</label>
+
       <input
         onChange={(e) => {
           changePass(e);
@@ -47,7 +59,7 @@ export default function LogIn({ setToken }) {
         placeholder="pass"
       />
 
-      <br/>
+      <br />
       <br />
       <button
         onClick={() => {
