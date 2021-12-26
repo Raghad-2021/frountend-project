@@ -26,6 +26,9 @@ export default function LogIn({ setToken }) {
       // حفظ التوكن والرول في لوكل ستوريج
       localStorage.setItem("role", res.data.user.role);
       setToken(res.data.token);
+
+      localStorage.setItem("userId", res.data.user._id);
+ 
       // فتح الراوت حسب الرول 
       res.data.user.role == "admin"
       
@@ -50,6 +53,7 @@ export default function LogIn({ setToken }) {
       <br />
 
       <label>password</label>
+      <br />
 
       <input
         onChange={(e) => {

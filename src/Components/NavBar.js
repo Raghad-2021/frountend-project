@@ -1,14 +1,14 @@
 import React,{useEffect, useState} from "react";
 import { Navbar, Container , Nav, Form, Button, FormControl } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
+import "./Nav.css"
 
-import "./Nav.css";
 export default function NavBar({ _token }) {
   const [token, setToken] =useState(null);
   const [role, setRole] =useState(null);
   const history = useHistory()
   useEffect(() => {
-    // ياخذ التوكن ويخزنها بالوكل ستوريج
+    // ياخذ التوكن ويخزها بالوكل ستوريج
     const token = localStorage.getItem('token')
     const _role = localStorage.getItem('role')
     // حسب الرول نعدل في النفبار
@@ -31,12 +31,7 @@ export default function NavBar({ _token }) {
 
   
   return (
-    <Navbar>
-  <Container fluid>
-    <Navbar.Brand href="#">Netflex</Navbar.Brand>
-    <Navbar.Toggle aria-controls="navbarScroll" />
-    <Navbar.Collapse id="navbarScroll">
-    // اذا 
+    <div className="div22">
     {token &&  role == "user"?
       <Nav
         className="me-auto my-2 my-lg-0"
@@ -46,9 +41,11 @@ export default function NavBar({ _token }) {
 
         
         <Nav.Link href="/movies">movies</Nav.Link>
+        
         <Nav.Link href="/Home">Home</Nav.Link>
-
+       
         <Nav.Link onClick={logout}>logout</Nav.Link>
+        
 
       </Nav>
       :null}
@@ -73,7 +70,8 @@ export default function NavBar({ _token }) {
       >
 
         
-        <Nav.Link href="/movies">Add movies</Nav.Link>
+        <Nav.Link href="/admin-home">Add movies</Nav.Link>
+        <Nav.Link href="/movies">movies</Nav.Link>
 
         <Nav.Link onClick={logout}>logout</Nav.Link>
 
@@ -83,12 +81,9 @@ export default function NavBar({ _token }) {
        
       {token && role != "admin" ?
       <Form className="d-flex">
-      
+       
       </Form> : null}
       
-    </Navbar.Collapse>
-  </Container>
-</Navbar>
-
+</div>
   );
  }

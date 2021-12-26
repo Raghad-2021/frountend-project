@@ -1,11 +1,15 @@
-body {
-    background-image: url("");
-    background-color: linen;
-    box-shadow: steelblue;
-  }
+/* body{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   
-  .loginbox{
-    padding: 14px 16px;
-    margin-left: 40%;
-    width: 50%;
-  }
+  
+} */
+ .div1{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 1px solid black;
+  height: 200px;
+  width: 500px;
+ }
