@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useHistory} from "react-router-dom";
+import { useHistory,  useParams } from "react-router-dom";
 
 import axios from "axios";
 import "./movies.css";
 export default function Movies({ token }) {
 const [movies, setmovies] = useState([]);
+const [element, setelement] = useState("");
+const {id} = useParams();
 // علشان نخزن قيمة state الجديده
-// const [searchArr, setSearchArr] = useState("");
+const [searchArr, setSearchArr] = useState("");
 
 useEffect(async () => {
   
@@ -19,21 +21,73 @@ useEffect(async () => {
   });
   setmovies(res.data);
 }, []);
-   
+  
+const searchTarget = (e) => {
+  setSearchArr(e.target.value);
+};
+const search = () => {
+  const search1 = movies.filter((elm) => {
+    if (elm.name.toLowerCase().includes(searchArr.toLocaleLowerCase())) {
+      return elm;
+    }
+        });
+        setmovies(search1)
+};
 
 
+
+
+const deleteMovies=async (id, index)=>{
+  const deleteMovies = await axios.delete(`http://localhost:5000/movies/${id}`,
+ 
+  {
+    headers: { authorization: `Bearer ${token}` },
+  }
+  
+);
+
+
+  const copiedArr= [...movies];
+  copiedArr.splice(index,1);
+  setmovies(copiedArr);
+  
+};
+
+
+
+  
   return (
    
     <div className="div1">
+      <div className="gggggg">
+      
+
+       <input type="text" onChange={(e)=>{searchTarget(e)}} />
+          <button onClick={()=>{search()}}>search</button>
+          </div>
+          <div className="all-moves">
+
        {movies.map((elem, i) => {
          return (
-           <div className="movdiv">
-             <p>{elem.name}</p>
-             <p>{elem.description}</p>
-             <img src={elem.img} alr="no img" />
+           <div className="img">
+             
+             <p className="modiv">{elem.name}</p>
+             <img className="movdiv" src={elem.img} alr="no img" />
+             <p className="modiv">{elem.description}</p>
+             <button
+                onClick={() => {
+                  deleteMovies(element._id, i);
+                }}
+              >delete</button>
+              
+          
+          <h3>{token}</h3> 
+
            </div>
+           
          );
        })}
+       </div>
     
      </div>
    );

@@ -1,89 +1,88 @@
-import React,{useEffect, useState} from "react";
-import { Navbar, Container , Nav, Form, Button, FormControl } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import {
+  Navbar,
+  Container,
+  Nav,
+  Form,
+  Button,
+  FormControl,
+} from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import "./Nav.css"
+import "./Nav.css";
 
 export default function NavBar({ _token }) {
-  const [token, setToken] =useState(null);
-  const [role, setRole] =useState(null);
-  const history = useHistory()
+  
+  const [token, setToken] = useState(null);
+  const [role, setRole] = useState(null);
+  const history = useHistory();
   useEffect(() => {
     // ياخذ التوكن ويخزها بالوكل ستوريج
-    const token = localStorage.getItem('token')
-    const _role = localStorage.getItem('role')
+    const token = localStorage.getItem("token");
+    const _role = localStorage.getItem("role");
     // حسب الرول نعدل في النفبار
-    setRole(_role)
-    setToken(token)
-  } , [_token])
+    setRole(_role);
+    setToken(token);
+  }, [_token]);
 
-  const logout = () =>{
-    setToken (null);
-    setRole (null);
-    localStorage.removeItem('token')
-        // تسجيل خروج مسحنه التوكن
+  const logout = () => {
+    setToken(null);
+    setRole(null);
+    localStorage.removeItem("token");
+    // تسجيل خروج مسحنه التوكن
 
-    localStorage.removeItem('role')
-        // تسجيل خروج مسحنه الرول
+    localStorage.removeItem("role");
+    // تسجيل خروج مسحنه الرول
 
-    history.replace('login')
-  }
- 
+    history.replace("login");
+  };
 
-  
   return (
     <div className="div22">
-    {token &&  role == "user"?
-      <Nav
-        className="me-auto my-2 my-lg-0"
-        style={{ maxHeight: '100px' }}
-        navbarScroll
-      >
+      {token && role == "user" ? (
+        <Nav
+          className="me-auto my-2 my-lg-0"
+          style={{ maxHeight: "100px" }}
+          navbarScroll
+        >
 
         
-        <Nav.Link href="/movies">movies</Nav.Link>
-        
-        <Nav.Link href="/Home">Home</Nav.Link>
-       
-        <Nav.Link onClick={logout}>logout</Nav.Link>
-        
+          <Nav.Link href="/movies">movies</Nav.Link>
 
-      </Nav>
-      :null}
-      {!token ? 
-                //  اذا مافي توكن يظهر تسجيل وتسجيل دخول
+          <Nav.Link href="/Home">Home</Nav.Link>
+
+          <Nav.Link onClick={logout}>logout</Nav.Link>
+        </Nav>
+      ) : null}
+      {!token ? (
+        //  اذا مافي توكن يظهر تسجيل وتسجيل دخول
 
         <Nav
           className="me-auto my-2 my-lg-0"
-          style={{ maxHeight: '100px' }}
-            
+          style={{ maxHeight: "100px" }}
           navbarScroll
         >
-        <Nav.Link href="/SinUp">SinUp</Nav.Link>
-        <Nav.Link href="/logIn">login</Nav.Link>
-        </Nav>: null}
+          <Nav.Link href="/SinUp" className="ss">
+            SinUp
+          </Nav.Link>
+          <Nav.Link href="/logIn"  className="ss">login</Nav.Link>
+        </Nav>
+      ) : null}
 
-      {token &&  role == "admin"?
-      <Nav
-        className="me-auto my-2 my-lg-0"
-        style={{ maxHeight: '100px' }}
-        navbarScroll
-      >
+      {token && role == "admin" ? (
+        <Nav
+          className="me-auto my-2 my-lg-0"
+          style={{ maxHeight: "100px" }}
+          navbarScroll
+        >
+          <Nav.Link href="/admin-home" className="ss">Add movies</Nav.Link>
+          <Nav.Link href="/movies" className="ss">movies</Nav.Link>
+          <Nav.Link href="/Favorite" className="ss">Favorite</Nav.Link>
 
-        
-        <Nav.Link href="/admin-home">Add movies</Nav.Link>
-        <Nav.Link href="/movies">movies</Nav.Link>
+          <Nav.Link onClick={logout}>logout</Nav.Link>
+        </Nav>
+      ) : null}
 
-        <Nav.Link onClick={logout}>logout</Nav.Link>
-
-      </Nav>
-      :
-     null}
-       
-      {token && role != "admin" ?
-      <Form className="d-flex">
-       
-      </Form> : null}
-      
-</div>
+      {token && role != "admin" ? <Form className="d-flex"></Form> : null}
+    </div>
   );
- }
+}

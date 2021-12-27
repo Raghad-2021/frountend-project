@@ -45,7 +45,8 @@ export default function AdminHome({}) {
                 console.log(e)
             }
       }
-
+      
+      
     return (
         <>
       <div className="movies">
@@ -54,13 +55,14 @@ export default function AdminHome({}) {
           return (
             <div className="movies">
               <p>name:{element.name}</p>
-              <p>description: {element.description}</p>
               <img src={element.img} alt="nooo img" />
-             
+              <p>description: {element.description}</p>
+              
             </div>
           );
         })}
       </div>
+      <div className='ddd'>
       <h1>Add Movies</h1>
       <input
         onChange={(e) => {
@@ -71,17 +73,7 @@ export default function AdminHome({}) {
       />{" "}
         <br/>
         <br/>
-      <input
-        onChange={(e) => {
-            changedescription(e);
-        }}
-        type="text"
-        placeholder="description"
-      />
-
-      <br/>
-      <br/>
-      <input
+        <input
         onChange={(e) => {
             changeimg(e);
         }}
@@ -89,6 +81,16 @@ export default function AdminHome({}) {
         placeholder="img"
       />
 
+      <br/>
+      <br/>
+    
+    <input
+        onChange={(e) => {
+            changedescription(e);
+        }}
+        type="text"
+        placeholder="description"
+      />
       <br/>
       <br/>
       <button
@@ -99,7 +101,8 @@ export default function AdminHome({}) {
 
         Submit
       </button>
-      <h3>{token}</h3>
+      {/* <h3>{token}</h3> */}
+      </div>
     </>
   );
 }

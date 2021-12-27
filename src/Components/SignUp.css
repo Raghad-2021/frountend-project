@@ -13,9 +13,9 @@ text-align: center;
 
 .loginbox{
  margin: auto;
-    box-shadow: rgba(19, 185, 226, 0.788);
-    background-color: rgba(235, 163, 28, 0.452);
-    min-height: 65vh;
+    box-shadow: hsla(192, 94%, 49%, 0.795);
+    background-color: grey;
+     min-height: 65vh;
     min-width: 0%;
     flex-direction: column;
     align-items: center;
@@ -25,6 +25,8 @@ text-align: center;
   border-block-end: rgb(179, 185, 185);
   border-radius: 30%;
  margin-top: 55px;
+ border: 1px solid #4a036bbd;
+
  
 }
 
