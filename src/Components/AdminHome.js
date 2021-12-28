@@ -9,9 +9,10 @@ export default function AdminHome({}) {
     const [description, setdescription] = useState("")
     const [userId, setUserId] = useState("")
     const [token, setToken] = useState("")
-
+    const [role, setrole] = useState("")
+    // useState علشان تخزن لي قيمة الفنكشن
     useEffect(() => {
-    
+        //اليوزر هو الي يقدر يحذف او يضيف
         const _userId = localStorage.getItem('userId')
         const _token = localStorage.getItem('token')
         setUserId(_userId)
