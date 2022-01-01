@@ -3,30 +3,31 @@ import { link,useHistory,  useParams } from "react-router-dom";
 
 import axios from "axios";
 import "./movies.css";
-export default function Movies({ token2 }) {
+export default function Movies({ token }) {
 const [movies, setmovies] = useState([]);
 const [element, setelement] = useState("");
 // const {id} = useParams();
 // علشان نخزن قيمة state الجديده
 // const [searchArr, setSearchArr] = useState("");
 const [role, setrole] = useState(null);
-const [token, settoken] = useState(null)
+const history=useHistory()
+
 useEffect(async () => {
   
-  const  _token = token2 ? token2 :  localStorage.getItem('token');
+
   // عشان ناخذ التوكن اما من الصفحه الي قبلها او من اللوكل ستوريج
   const  _role = localStorage.getItem('role');
-  const  token = localStorage.getItem('token');
+ 
 
   // اليوزر ياخذه من الصفحه الي قبل اما الادمن
   // ياخذ من الوكل ستوريج 
   const res = await axios.get("http://localhost:5000/movies", {
-    headers: { authorization: "Bearer " + _token },
+    headers: { authorization: "Bearer " + token },
     // useEffect نستدعيها مرا وحده الي هي يوم نعمل ل Commponet init  بحيث يجيب البيانات من Api 
   });
   setrole(_role);
       console.log("jjjjj");
-      settoken(token);
+   
   setmovies(res.data);
 }, []);
 
@@ -63,7 +64,10 @@ console.log(deleteMovies.data);
 };
 console.log("kkkkkk");
 
-
+const gotmovies=async(id)=>{
+  
+  history.push(`/Comment/${id}`)
+}
   
   return (
    
@@ -78,7 +82,7 @@ console.log("kkkkkk");
 
        {movies.map((elem, i) => {
          return (
-           <div className="img">
+           <div onClick={()=>{gotmovies(elem._id)}} className="img" key={i}>
              
              <p className="modiv">{elem.name}</p>
              <img className="movdiv" src={elem.img} alr="no img" />

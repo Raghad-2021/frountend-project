@@ -28,10 +28,9 @@ export default function LogIn({ setToken }) {
       setToken(res.data.token);
 
       localStorage.setItem("userId", res.data.user._id);
- 
-      // فتح الراوت حسب الرول 
+
+      // فتح الراوت حسب الرول
       res.data.user.role == "admin"
-      
         ? history.push("/admin-home")
         : history.push("/Movies");
     } catch (err) {}

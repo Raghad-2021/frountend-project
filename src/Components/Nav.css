@@ -6,7 +6,7 @@
     background-color: grey;
     top: 0;
     text-align: center;
-    border: 1px solid #4a036bbd;
+    border: snow;
     overflow: auto;
     border-block-end: thistle;
     font-size: calc(5px + 2vmin);
@@ -42,7 +42,7 @@
     bottom: 0;
     width: 100%;
     top: 0;
-    border: 1px solid #4a036bbd;
+    border: snow;
     color: #000;
     
 
