@@ -1,5 +1,27 @@
 .ddd{
-    flex-wrap: wrap;
-     
+    text-align: center;
+    }
+    
+    
+  
+    .ddd{
+     margin: auto;
+        background-color: rosybrown;
+        width: 600px;
+        min-height: 65vh;
 
-}
+        align-items: center;
+        justify-content: center;
+        font-size: calc(7px + 2vmin);
+        color: black;
+      border-radius: 30%;
+     margin-top:66px;
+     border: 1px solid #4a036bbd;
+    
+     
+    }
+    
+    button{
+        border-color: rgb(12, 11, 12);
+        box-shadow: beige;
+    }

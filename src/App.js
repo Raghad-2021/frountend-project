@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import LogIn from "./Components/logIn";
 import Movies from "./Components/Movies";
+import Favorit from "./Components/Favorit";
 import Home from "./Components/Home";
 import Comment from "./Components/Comment";
 import SinUp from "./Components/sinUp";
@@ -14,7 +15,6 @@ export default function App() {
   const [role, setrole] = useState(null);
   return (
     <div>
-      <h1>{token}</h1>
       <div className="container">
         <NavBar token={token} setToken={setToken} />
 
@@ -27,7 +27,8 @@ export default function App() {
         />
         <Route exact path="/SinUp" component={SinUp} />
         <Route exact path="/admin-home" render={() => <AdminHome  token={token}  />} />
-
+        <Route exact path="/Favorite" render={() => <Favorit  token={token}  />} />
+       
         <Route
           exact
           path="/movies"

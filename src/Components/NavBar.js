@@ -54,26 +54,32 @@ export default function NavBar({ token, setToken }) {
           <Link to="/home">
             <a>Home</a>
           </Link>
-
-          <Nav.Link onClick={logout}>logout</Nav.Link>
+          <Link to="/Favorite">
+          {" "}
+          <a className="btn">Favorite</a>
+        </Link>
+          <Nav.Link  onClick={logout}>logout</Nav.Link>
         </Nav>
       ) : null}
       {!token ? (
         //  اذا مافي توكن يظهر تسجيل وتسجيل دخول
 
         <Nav
-          className="me-auto my-2 my-lg-0"
+          className="dropbtn"
           style={{ maxHeight: "100px" }}
           navbarScroll
         >
+        <div className="bbbbbb">
           <Link to="SinUp">
             {" "}
-            <a className="ss">SinUp</a>
+            <a className="btn">SinUp</a>
           </Link>
           <Link to="login">
             {" "}
-            <a className="ss">login</a>
+            <a className="btn">login</a>
           </Link>
+
+          </div>
         </Nav>
       ) : null}
       {token && role == "admin" ? (
@@ -86,18 +92,20 @@ export default function NavBar({ token, setToken }) {
         >
           <Link to="/admin-home">
             {" "}
-            <a className="ss">Add movies</a>
+            <a className="btn">Add movies</a>
           </Link>
           <Link to="/movies">
             {" "}
-            <a className="ss">movies</a>
+            <a className="btn">movies</a>
           </Link>
           <Link to="/Favorite">
-            {" "}
-            <a className="ss">Favorite</a>
-          </Link>
-
+          {" "}
+          <a className="btn">Favorite</a>
+        </Link>
+         
+          <a ClassName="btn"></a>
           <Nav.Link onClick={logout}>logout</Nav.Link>
+
         </Nav>
       ) : null}
 

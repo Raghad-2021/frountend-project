@@ -1,56 +1,52 @@
- .div22{
+
+
+  body{
+    background-color: slategrey;
+  }
+
+  
+
+  .div22 {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: grey;
-    top: 0;
-    text-align: center;
-    border: snow;
-    overflow: auto;
-    border-block-end: thistle;
-    font-size: calc(5px + 2vmin);
-    min-height: 3vh;
-    min-width: 0%;
-    justify-content: center;
-    margin-top: 30px;
-    border-radius: 40px;
-
-  }
-  
-  .div22 .i a:hover {
-  background-color: tomato;
-  }
-  .div22.dropdown {
-    display: inline-block;
-  }
-
-
-  li {
-    float: left;
+    background-color: rosybrown;
+    border: 1px solid #4a036bbd;
     
   }
   
-  .div22 {
+  .btn {
+    float: left;
+  }
+  
+  /* .bbbb {
     display: block;
-    color: rgba(14, 226, 120, 0.842);
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    border-right: none;
-    border-right: 1px solid #bbb;
-    bottom: 0;
-    width: 100%;
-    top: 0;
-    border: snow;
-    color: #000;
     
+  } */
 
+  li:last-child {
+    border-right: none;
+  }
+  
+  .btn {
+    background-color: #111;
   }
 
- .ss:hover{
-     background-color: rgba(139, 15, 240, 0.432);
+
+ .btn:hover{
+     background-color: seashell;
  }
 
 
+
+.btn{
+  /* margin-top: 25%; */
+border-radius: 30px;
+
+}  
 

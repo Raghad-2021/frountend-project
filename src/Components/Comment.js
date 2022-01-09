@@ -12,6 +12,7 @@ export default function Comment({}) {
     const [input, setinput] = useState('')
     const history=useHistory()
     
+
     useEffect(async () => {
         console.log(id,"id");
         const tokenFromStorage = localStorage.getItem('token')
@@ -24,6 +25,9 @@ export default function Comment({}) {
       setComment(res.data.comment)
               }, []);
 
+
+        
+        
               const changeComment=(e)=>{
                 setinput(e.target.value)
               }
@@ -37,16 +41,17 @@ export default function Comment({}) {
                     { headers: { authorization: "Bearer " + token } }
                   );
                 //  history.push("./Comment")
-                console.log(res.data)
+                // console.log(res.data)
                 setinput('')
                   setComment([...res.data])
               }
 
               console.log("Comment5");
+
     return (
         <div>
         {movies? <div>
-  
+
             <p>{movies.name}</p>
       <p>{movies.description}</p>
       <img src={movies.img} alr="no img" />
@@ -57,6 +62,7 @@ export default function Comment({}) {
           return <>
               <p> {elm.userName}</p>
               <p>{elm.comment}</p>
+
               </>
           
       })}</h1>

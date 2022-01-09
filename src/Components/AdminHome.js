@@ -31,7 +31,7 @@ export default function AdminHome({token}) {
      }
      const addmovies=async()=>{
          try{
-           console.log(token)
+          //  console.log(token)
         const res = await axios.post(
             `http://localhost:5000/movies`,
             {
@@ -93,7 +93,6 @@ export default function AdminHome({token}) {
 
         Submit
       </button>
-      {/* <h3>{token}</h3> */}
       </div>
  
   );
