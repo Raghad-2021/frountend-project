@@ -6,7 +6,10 @@ import {
   Form,
   Button,
   FormControl,
+
 } from "react-bootstrap";
+import { FcLike } from 'react-icons/fc';
+
 import { Link, useHistory } from "react-router-dom";
 import "./Nav.css";
 
@@ -46,19 +49,23 @@ export default function NavBar({ token, setToken }) {
           style={{ maxHeight: "100px" }}
           navbarScroll
         >
+        <div className="NavBwr4">
           <Link to="/movies">
             {" "}
-            <a>movies</a>
+            <a className="NavBwr4">movies</a>
           </Link>
 
           <Link to="/home">
-            <a>Home</a>
+            <a className="NavBwr4">Home</a>
           </Link>
           <Link to="/Favorite">
-          {" "}
-          <a className="btn">Favorite</a>
+          
+          <a className="NavBwr4">
+          Favorite</a>
         </Link>
-          <Nav.Link  onClick={logout}>logout</Nav.Link>
+          <Link className="NavBwr4" onClick={logout}>logout</Link>
+         
+          </div>
         </Nav>
       ) : null}
       {!token ? (
@@ -66,7 +73,6 @@ export default function NavBar({ token, setToken }) {
 
         <Nav
           className="dropbtn"
-          style={{ maxHeight: "100px" }}
           navbarScroll
         >
         <div className="bbbbbb">
@@ -87,30 +93,30 @@ export default function NavBar({ token, setToken }) {
 
         <Nav
           className="me-auto my-2 my-lg-0"
-          style={{ maxHeight: "100px" }}
           navbarScroll
         >
           <Link to="/admin-home">
-            {" "}
+
             <a className="btn">Add movies</a>
           </Link>
           <Link to="/movies">
-            {" "}
+
             <a className="btn">movies</a>
           </Link>
           <Link to="/Favorite">
-          {" "}
-          <a className="btn">Favorite</a>
+          <a className="btn">
+          Favorite
+          <FcLike/>    </a>
         </Link>
          
-          <a ClassName="btn"></a>
-          <Nav.Link onClick={logout}>logout</Nav.Link>
+          <Nav.Link ClassName="bbbb" onClick={logout}>logout</Nav.Link>
 
         </Nav>
       ) : null}
 
       {token && role != "admin" ? <Form className="d-flex"></Form> : null}
     </div>
+    
   );
 }
 // هنا عشان نخفي البحث يوم يكون ادمن

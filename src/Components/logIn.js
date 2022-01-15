@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router";
-
 import "./login.css";
 
 export default function LogIn({ setToken }) {
@@ -38,7 +37,6 @@ export default function LogIn({ setToken }) {
   return (
     <div className="loginbox">
       <h1> LOGIN </h1>
-
       <label>Email:</label>
       <br />
       <input

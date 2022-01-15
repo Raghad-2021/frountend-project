@@ -80,6 +80,9 @@ export default function SinUp() {
       >
         sinUp
       </button>
+      <i class="fas fa-user"></i>
+
+
     </div>
     
   );

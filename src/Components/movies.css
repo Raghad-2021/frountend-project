@@ -5,7 +5,7 @@
 .all-moves{
  
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr ;
   
  } 
 /* .desr{
@@ -20,38 +20,51 @@
   border-radius: 4px;
   border: 0rem;
   padding: 5px;
- margin-top: 30PX;
 
 }
 
  .img {
    width: 100%;
    height: 200px;
+   margin-top: 120px;
 
  } 
-
- .BOUTN{
+.w3-text-yellow{
+  text-shadow:1px 1px 0 rgba(230, 18, 18, 0.692);
+  flex-wrap: wrap;
+  margin-top: -70%;
+  display: flex;
+  margin-left: 47px;
+top: 300%;  
+text-align: center;
+}
+ .BOUTN-FcLike{
    display: flex;
-   height: 15%;
-   margin-top: 30px;
-   margin-left: 60px;
+   height: 12%;
+   margin-top: 5%;
    display: grid;
-   top: -58px;
    position: relative;
-   left: 73px;
-
+margin-left: -25%;
  }
 
- .movdiv{
- height: 50vh;
- margin: auto;
+ /* .FcLike{
+  height: 12%;
+  display: grid;
+  position: relative;
+  margin-top: -155%;
+  margin-left: 35%;
 
- } 
+ } */
+ .movdiv{
+
+bottom: 30%;
+margin-top: -44%;
+} 
 
  .Search{
 
   position: relative;
-  top: -38px;
+  top: -50px;
   left: 850px;
 
 }
@@ -59,19 +72,36 @@
 
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
+  margin-right: -55%;
 
 } 
 
 
+ /* بعدل لك اياه ل قريد لكن راح الاحجام راح تتغير وتصير لخبطة  */
+ /* اذا ماعجبك او ماقدرتي تعدلين بالاحجام رجعيه لوضعه الطبيعي flex  */
  
- .all-moves-here {
+/* .all-moves-here {
   display: flex;
   flex-wrap: wrap;
 
+} */
+
+.all-moves-here {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  margin-left: 100px;
 }
 
+
+/* .asddf{
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+  width: 150px;
+} */
 .all-moves-here div {
-  width: 30%;
+  width: 200px;
 
 }
 
@@ -79,13 +109,17 @@
   width: 100%;
   height: 200px;
 
-} 
-
-/* .mmmmmm{
-  opacity: 0;
-  position: absolute;
-  bottom: 0%;
-  left: 0%;
-  right: 0%;
+}  
+/* .modiv{
+  left: 30px;
+  margin-left: 55px;
+}  */
+ .text{
+  opacity: 0%;
+  position: 20%;
+  bottom: 30%;
+margin: -5em;
+  left: -50%;
+  right: 3%;
  height: 100%;
-} */
+} 

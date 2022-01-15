@@ -3,12 +3,14 @@ import { link,useHistory,  useParams } from "react-router-dom";
 import { FcLike } from 'react-icons/fc';
 import { BsSearch } from 'react-icons/bs';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
+import { refresh } from 'react-icons/ri';
 
 import axios from "axios";
 import "./movies.css";
 export default function Movies({ token }) {
 const [movies, setmovies] = useState([]);
 const [Favorit, setFavorit] = useState("");
+// const [video, setvideo] = useState("");
 
 
 const [element, setelement] = useState("");
@@ -18,7 +20,7 @@ const [searchArr, setSearchArr] = useState("");
 const [role, setrole] = useState(null);
 const history=useHistory()
 const {id} = useParams()
-
+const [inputNameMovie, setInputNameMovie] = useState("")
 useEffect(async () => {
   
 
@@ -41,12 +43,12 @@ useEffect(async () => {
 useEffect(async () => {
   if(token) {
       const Fav = await axios.get("http://localhost:5000/movies", {
-          headers: {authorization: "Bearer" + token},
+          headers: {authorization: "Bearer " + token},
       });
       setFavorit(Fav.data);
       console.log(Fav.data, "ffffff");
   }
-}, [token]);
+}, []);
 
 
 const searchTarget = (e) => {
@@ -107,8 +109,29 @@ const toggleColor=async(id)=>{
      }
 }
 
+const changename=(e)=>{
+  setInputNameMovie(e.target.value);
+}
 
+const updatenam=async (id,i)=>{
+  console.log(id);
+    const updateMovies = await axios.put(`http://localhost:5000/updet`,
+    {
+      id : id , 
+      newName : inputNameMovie
+    },
+   
+    {
+      headers: { authorization: `Bearer ${token}` },
+    }
 
+  );
+  // console.log(deleteMovies.data);
+  
+  
+    setmovies(updateMovies.data);
+  
+  };
 
   return (
    
@@ -124,20 +147,44 @@ const toggleColor=async(id)=>{
           
           <div className="all-moves-here">
 
-       {movies.map((elem, i) => {
+       {movies && movies.map((elem, i) => {
          
          console.log(elem);
          return (
-           
            <div   className="img" key={i}>
              
-             <p className="modiv">{elem.name}</p>
+             <p class="w3-text-yellow">{elem.name}</p>
              
-             <p className="mmmmmm">{elem.description}</p>
-            
+             <p className="text">{elem.description}</p>
+             <br/>
+      <br/>
              <img  className="movdiv"  onClick={()=>{gotmovies(elem._id)}} src={elem.img} alr="no img" />
-                
-             <button
+             
+    
+             <input
+        onChange={(e) => {
+            changename(e);
+        }}
+        type="text"
+        placeholder="name"
+      />
+
+       <i><button class="fa fa-cloud"
+                onClick={() => {
+                  updatenam(elem._id);
+                }}
+               >
+                 bbb
+                 <refresh />
+               </button>
+      </i>
+             {/* <iframe
+      width="853"
+      height="480"
+      src={`https://www.youtube.com/embed/${elem.video}`}
+    />              */}
+    
+    <button className="FcLike"
                 onClick={() => {
                   toggleColor(elem._id);
                 }}
@@ -160,6 +207,7 @@ const toggleColor=async(id)=>{
 
 
               </button>
+              
               ) : null}
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import LogIn from "./Components/logIn";
 import Movies from "./Components/Movies";
 import Favorit from "./Components/Favorit";
@@ -6,13 +6,22 @@ import Home from "./Components/Home";
 import Comment from "./Components/Comment";
 import SinUp from "./Components/sinUp";
 import NavBar from "./Components/NavBar";
-import { Route } from "react-router-dom";
+
+import { Route , useHistory } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./App.css";
+
 import AdminHome from "./Components/AdminHome";
 export default function App() {
   const [token, setToken] = useState(null);
   const [role, setrole] = useState(null);
+  const history = useHistory()
+
+  useEffect(() => {
+    
+    if (token == null) history.replace('./login')
+  }, [])
   return (
     <div>
       <div className="container">

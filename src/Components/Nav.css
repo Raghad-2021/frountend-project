@@ -8,8 +8,8 @@
 
   .div22 {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: 7px;
+    padding: 8px;
     overflow: hidden;
     background-color: rosybrown;
     border: 1px solid #4a036bbd;
@@ -42,7 +42,10 @@
      background-color: seashell;
  }
 
+.bbbb:hover{
+  background-color: seashell;
 
+}
 
 .btn{
   /* margin-top: 25%; */
@@ -50,3 +53,19 @@ border-radius: 30px;
 
 }  
 
+.NavBwr4{
+  border-radius: 30px;
+  float: left;
+margin-left: 30px;
+overflow: hidden;
+
+}
+
+li:last-child {
+  border-right: none;
+}
+
+
+/* .NavBwr4:hover{
+  background-color: seashell;
+} */

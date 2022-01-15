@@ -6,6 +6,8 @@ export default function AdminHome({token}) {
 
     const [name, setname] = useState("");
     const [img, setimg] = useState("")
+    const [video, setvideo] = useState("")
+
     const [description, setdescription] = useState("")
     const [userId, setUserId] = useState("")
     // const [token, setToken] = useState("")
@@ -38,7 +40,8 @@ export default function AdminHome({token}) {
                 name: name,
                 description: description,
                 img: img ,
-                userId: userId           },
+                userId: userId ,
+                video:  video        },
             { headers: { authorization: "Bearer " + token } }
 
            
@@ -72,7 +75,15 @@ export default function AdminHome({token}) {
         type="text"
         placeholder="img"
       />
-
+      <br/>
+      <br/>
+      <input
+      onChange={(e) => {
+          changeimg(e);
+      }}
+      type="text"
+      placeholder="video"
+    />
       <br/>
       <br/>
     
