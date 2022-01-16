@@ -19,7 +19,6 @@ export default function App() {
   const history = useHistory()
 
   useEffect(() => {
-    
     if (token == null) history.replace('./login')
   }, [])
   return (

@@ -38,7 +38,7 @@ export default function NavBar({ token, setToken }) {
     localStorage.removeItem("role");
     // تسجيل خروج مسحنه الرول
 
-    history.replace("../login");
+    // history.replace("../login");
   };
 
   return (
@@ -63,8 +63,11 @@ export default function NavBar({ token, setToken }) {
           <a className="NavBwr4">
           Favorite</a>
         </Link>
-          <Link className="NavBwr4" onClick={logout}>logout</Link>
-         
+        <Link to="/login">
+        <a className="btn" onClick={logout}>
+        logout
+            </a>
+      </Link>         
           </div>
         </Nav>
       ) : null}
@@ -109,7 +112,11 @@ export default function NavBar({ token, setToken }) {
           <FcLike/>    </a>
         </Link>
          
-          <Nav.Link ClassName="bbbb" onClick={logout}>logout</Nav.Link>
+        <Link to="/login">
+        <a className="btn" onClick={logout}>
+        logout
+            </a>
+      </Link>
 
         </Nav>
       ) : null}

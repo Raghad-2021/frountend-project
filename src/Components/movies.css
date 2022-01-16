@@ -1,5 +1,8 @@
- body{
-  background-color: slategrey;
+body{
+  background-image: url("https://i.pinimg.com/originals/4f/19/a5/4f19a5626fef8883af0bfb4cd86ee1e1.jpg");
+  opacity: 0.8;
+  filter: alpha(opacity=40);
+
 }
 
 .all-moves{

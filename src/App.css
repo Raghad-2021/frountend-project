@@ -1,3 +1,12 @@
+:root{
+    --my-backround: url("https://i.pinimg.com/originals/4f/19/a5/4f19a5626fef8883af0bfb4cd86ee1e1.jpg")
+}
+
 body{
-    background-color: slategrey;
+  background-image: var(--my-backround);
+  opacity: 0.8;
+ruby-overhang: auto;
+
+  filter: alpha(opacity=40);
+  background-size: cover;
 }

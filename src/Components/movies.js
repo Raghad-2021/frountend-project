@@ -22,7 +22,8 @@ const history=useHistory()
 const {id} = useParams()
 const [inputNameMovie, setInputNameMovie] = useState("")
 useEffect(async () => {
-  
+  document.documentElement.style.setProperty('--my-backround', "new url")
+
 
   // عشان ناخذ التوكن اما من الصفحه الي قبلها او من اللوكل ستوريج
   const  _role = localStorage.getItem('role');
@@ -160,7 +161,8 @@ const updatenam=async (id,i)=>{
       <br/>
              <img  className="movdiv"  onClick={()=>{gotmovies(elem._id)}} src={elem.img} alr="no img" />
              
-    
+             {role && role == "admin" ? (
+
              <input
         onChange={(e) => {
             changename(e);
@@ -168,23 +170,17 @@ const updatenam=async (id,i)=>{
         type="text"
         placeholder="name"
       />
-
-       <i><button class="fa fa-cloud"
+      ) : null}
+       
+      {role && role == "admin" ? (
+             <button className="BOUTN"
                 onClick={() => {
                   updatenam(elem._id);
                 }}
-               >
-                 bbb
-                 <refresh />
-               </button>
-      </i>
-             {/* <iframe
-      width="853"
-      height="480"
-      src={`https://www.youtube.com/embed/${elem.video}`}
-    />              */}
-    
-    <button className="FcLike"
+              >
+              </button>
+              ) : null}
+               <button className="FcLike"
                 onClick={() => {
                   toggleColor(elem._id);
                 }}
@@ -192,7 +188,7 @@ const updatenam=async (id,i)=>{
                
                
                <FcLike  />
-               {/* disabled={isRedColor} */}
+              
 
               </button>
               
